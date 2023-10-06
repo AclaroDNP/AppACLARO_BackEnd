@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="question" viewBox="0 0 16 16">
+      <path
+        d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z" />
+    </symbol>
+  </svg>
+  
+  
+  <div class="row">
+    <div class="card-body col-lg-6">
+      <label class="font_1" style="font-weight: 600; color: #004884;">Ingresar texto</label>
+      <form (ngSubmit)="cargarTextoMetricas(textoNuevo)">
+        <div class="d-flex">
+          <textarea class="form-control" type="text" name="texto" rows="16" #texto="ngModel"
+            [(ngModel)]="textoNuevo.texto" required>
+          </textarea>
+        </div>
+  
+        <div class="container mt-2">
+          <div class="row ">
+            <div class="col position-button-left mb-2" style="min-width: 275px;">
+              <input (click)="newTexto(); displaySpinner();" type="button" class="btn-govco fill-btn-govco d-inline "
+                style="width: 125px; height: 42px; margin-right: 5px; " type="submit" value="Ejecutar">
+              <button (click)="clearText(); displayNav = false" class="btn-govco-red fill-btn-govco-red "
+                style="width: 125px; height: 42px; " type="button">Borrar</button>
+            </div>
+            <div class="col position-button-right " style="min-width: 275px;">
+  
+              <button (click)="getTextoPrevious()" class="btn-govco-green fill-btn-govco-green "
+                style="width: 250px; height: 42px;" type="button">Obtener Texto
+                Anterior</button>
+            </div>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+    <div class="card-body col-lg-6">
+  
+  
+  
+      <div *ngIf="displayBool" class="d-flex flex-column align-items-center mt-5 justify-content-center">
+        <div class="row">
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow me-3 ms-3 " style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+        </div>
+        <div class="row">
+          <strong>Cargando...</strong>
+        </div>
+      </div>
+  
+      <div class="tab-content" [style.display]="displayNav && !displayBool ? 'block' : 'none'">
+      
+  
+        <div style="max-height: 500px; overflow-y: scroll; overflow-x: hidden;">
+  
+          <label class="font_1" style="font-weight: 600; color: #004884;">Análisis de Legibilidad</label>
+          <hr />
+          <div class="row">
+  
+            <div class="col"></div>
+            <div class="col">
+              <div class="card shadow rounded  modifCard_L"
+                [style.backgroundColor]=color_level>
+  
+                <button class="roundW position-absolute top-0 end-0 mt-1 me-1 font_2"
+                  data-tooltip="El indice Flesch-Szigriszt utiliza la escala INFLESZ para medir la complejidad en donde 0-40 es muy difícil, 41-55 algo difícil, 56-66 normal, 66-80 algo fácil y más de 80 muy fácil."
+                  data-tooltip-location="bottom">?</button>
+  
+                <div class="text-center card-body font_1">
+                  <p style="color: white; font-size: 16px; margin-top: -15px; font-weight: 500;">Nivel de Legibilidad:</p>
+                  <p style="color: white; font-size: 30px; margin-top: -15px; font-weight: bold;">
+                    {{IFSZ}}</p>
+                  <p style="color: white; font-size: 16px; margin-top: -15px;">
+                    {{level_inflesz}}</p>
+                </div>
+  
+              </div>
+  
+            </div>
+            <div class="col">
+            </div>
+          </div>
+  
+          <label class="font_1" style="font-weight: 600; color: #004884;">Características del Lenguaje Claro</label>
+          <hr />
+  
+          <div class="row">
+            <div class="col " style="display: flex; justify-content: center;">
+              <div class="box card shadow bg-body rounded " style="width: 360px; height: 220px;">
+  
+  
+                <div class="contenedor-tabla ali">
+                  <h6 class="font_1">Métricas de las oraciones</h6>
+                  <table class="table table-adaptativo" aria-describedby="tableDescAdaptive">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          Medidas
+                        </th>
+                        <th scope="col">
+                          Valores
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="contenido-adaptativo">
+                      <tr>
+                        <td>
+                          Número de oraciones:
+                        </td>
+                        <td>
+                          {{n_oraciones}}
+                        </td>
+  
+                      </tr>
+                      <tr>
+                        <td>
+                          Promedio palabras por oración:
+                        </td>
+                        <td>
+                          {{p_palabras}}
+                        </td>
+  
+                      </tr>
+                      <tr>
+                        <td>
+                          Total de palabras:
+                        </td>
+                        <td>
+                          {{n_palabras}}
+                        </td>
+  
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <button class="roundW position-absolute top-0 end-0 mt-1 me-1 font_2"
+                  data-tooltip="Los textos de fácil comprensión contienen oraciones cortas con conectores simples, por lo que se recomienda escribir oraciones con un promedio de 20 a 30 palabras. "
+                  data-tooltip-location="left">?</button>
+  
+              </div>
+            </div>
+            <div class="col " style="display: flex; justify-content: center;">
+              <div class="box card shadow bg-body rounded " style="width: 360px; height: 220px;">
+  
+  
+                <div class="contenedor-tabla ali">
+                  <h6 class="font_1">Métricas de los parrafos</h6>
+                  <table class="table table-adaptativo">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          Medidas
+                        </th>
+                        <th scope="col">
+                          Valores
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="contenido-adaptativo">
+                      <tr>
+                        <td>
+                          Número de párrafos:
+                        </td>
+                        <td>
+                          {{n_parrafos}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Promedio de oraciones por párrafo:
+                        </td>
+                        <td>
+                          {{p_oraciones_parrafo}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Promedio de palabras por párrafo:
+                        </td>
+                        <td>
+                          {{p_palabras_parrafo}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+  
+                <button class="roundW position-absolute top-0 end-0 mt-1 me-1 font_2"
+                  data-tooltip="Se recomiendan párrafos de no más de 150 palabras sin superar nunca las 250 palabras. Tambien, se recomienda que el número de oraciones por párrafo sea entre 3 y 8."
+                  data-tooltip-location="left">?</button>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="row ">
+  
+            <div class="box card shadow bg-body rounded">
+              <button class="roundW position-absolute top-0 end-0 mt-3 me-4"
+                data-tooltip="Recomendación: Los textos de fácil comprensión contienen oraciones cortas con conectores simples, por lo que se recomienda escribir oraciones con un promedio de 20 a 30 palabras."
+                data-tooltip-location="left">?</button>
+              <div class="card-body">
+                <h6 class="card-title font_1">Oración más larga:</h6>
+                <div>
+                  <span class=" font_2">{{oracion_mas_larga}}</span>
+                </div>
+              </div>
+  
+  
+            </div>
+          </div>
+  
+          <div class="row " style="margin-top: 20px;">
+            <div class="box card shadow bg-body rounded">
+              <div class="row">
+  
+                <div class="col-md-auto">
+                  <h6 class="card-title font_1">Partes de una oración</h6>
+                </div>
+                <div class="col-md-auto">
+                  <button class="roundW  position-absolute top-0 end-0 mt-3 me-4"
+                    data-tooltip="Textos complejos y tendenciosos, en promedio, utilizan sustantivos menos comunes y más nombres propios que textos simples y de caracter neutro."
+                    data-tooltip-location="left">?</button>
+                </div>
+              </div>
+  
+  
+              <ngx-charts-bar-horizontal [animations]="animations" [view]="view"
+                [results]="pdd_etiquetado" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+                [legend]="showLegend" [legendTitle]="'Etiquetado'" [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)">
+              </ngx-charts-bar-horizontal>
+  
+            </div>
+          </div>
+  
+  
+          <div class="row" style="margin-top: 20px;">
+  
+            <div class="box card shadow bg-body rounded">
+  
+              <div class="row">
+  
+                <div class="col-md-auto">
+                  <h6 class="card-title font_1">Nombres entidades reconocidas</h6>
+                </div>
+                <div class="col-md-auto" >
+                  <button class="roundW  position-absolute top-0 end-0 mt-3 me-4"
+                  data-tooltip="La correcta identificación de entidades nombradas ayuda a determinar mediante los nombres propios el público objetivo del texto de manera clara y sencilla sin entrar en el abuso de las abreviaturas."
+                    data-tooltip-location="left">?</button>
+                </div>
+              </div>
+  
+  
+              <div class="contenedor-tabla">
+    
+                <table class=" table table-general">
+                  <thead class="encabezado-tabla text-center">
+                    <tr>
+                      <th class="text-center " scope="col">
+                        Numero
+                      </th>
+                      <th class="text-center" scope="col">
+                        Etiqueta
+                      </th>
+                      <th class="text-center" scope="col">
+                        Entidades
+                      </th>
+                      <th class="text-center" scope="col">
+                        Frecuencia
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="contenido-tablas contenido-hover">
+                    <tr *ngFor="let nom_ent of textoMetricas; index as ii">
+                      <td>{{ii+1}}</td>
+                      <td>{{nom_ent.Etiqueta}}</td>
+                      <td>{{nom_ent.Texto}}</td>
+                      <td class="text-center">{{nom_ent.Frecuencia}}</td>
+                    </tr>
+  
+                  </tbody>
+                </table>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+  
+  
+        <!-- <div class="tab-pane fade" id="nav-caracteristicas" role="tabpanel" aria-labelledby="nav-caracteristicas-tab">-->
+  
+  
+  
+      </div>
+      <!--</div>-->
+  
+    </div>
+  
+  </div>
+  
+  
+  <div class="col-lg-12 text-center position-relative">
+    <p class="card-text font_2">Conoce el funcionamiento de las herramientas y deja tus comentarios sobre Aclaro.</p>
+    <div>
+      <button routerLink="/comentarios" class="btn-govco outline-btn-govco ms-3 me-3 "
+        style="min-width: 200px;">Comentarios »</button>
+      <button routerLink="/description" class="btn-govco outline-btn-govco ms-3 me-3"
+        style="min-width: 200px;">Funcionamiento »</button>
+    </div>
+  </div>

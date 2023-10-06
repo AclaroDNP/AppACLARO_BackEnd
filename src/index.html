@@ -2,12 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ACLAROFront</title>
+  <title>ACLARO</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/iconos/IA_iconos.png">
+
+  <!--CSS-->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/dashboard.css" rel="stylesheet">
+  <link href="./assets/css/colors/default-dark.css" id="theme" rel="stylesheet">
+
+  <!--JS-->
+  <script src="./assets/js/examples.js"></script>
+  <script src="./assets/js/jquery-3.6.0.slim.min.js"></script>
+  <script src="./assets/js/cookies.min.js"></script>
+  <!--<script src="./assets/js/jquery.tooltipster.min.js"></script>
+  <script src="./assets/js/errormarks.js"></script>-->
+
+
 </head>
-<body>
+
+
+<body class="fix-header fix-sidebar card-no-border">
+
+  <!--Preloader - style in spinners.css 
+  <div class="preloader">
+    <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">Aclaro</p>
+    </div>
+  </div>-->
+
+  <!--Main-->
   <app-root></app-root>
+
+  <!-- Menu Accesibilidad -->
+  <script>
+    (function (d) {
+      var s = d.createElement("script");
+      /* uncomment the following line to override default position*/
+      s.setAttribute("data-position", 3);
+      /* uncomment the following line to override default size (values: small, large)*/
+      /* s.setAttribute("data-size", "large");*/
+      /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+      /* s.setAttribute("data-language", "null");*/
+      /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+      s.setAttribute("data-color", "#0d6efd");
+      /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
+      /* s.setAttribute("data-type", "1");*/
+      /* s.setAttribute("data-statement_text:", "Our Accessibility Statement");*/
+      /* s.setAttribute("data-statement_url", "http://www.example.com/accessibility";*/
+      /* uncomment the following line to override support on mobile devices*/
+      /* s.setAttribute("data-mobile", true);*/
+      /* uncomment the following line to set custom trigger action for accessibility menu*/
+      /* s.setAttribute("data-trigger", "triggerId")*/
+      s.setAttribute("data-account", "sCyVlmRavi");
+      s.setAttribute("src", "https://cdn.userway.org/widget.js");
+      (d.body || d.head).appendChild(s);
+    })(document)
+  </script>
+  <noscript>
+    Please ensure Javascript is enabled for purposes of
+    <a href="https://userway.org">website accessibility</a>
+  </noscript>
+
+
+  <!--JS -->
+  <script src="./assets/js/perfect-scrollbar.jquery.min.js"></script>
+  <!--<script src="./assets/js/sidebarmenu.js"></script>-->
+  <!--<script src="./assets/js/custom.js"></script>-->
+
 </body>
 </html>

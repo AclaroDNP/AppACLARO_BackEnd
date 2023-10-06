@@ -1,0 +1,892 @@
+@media (min-width: 1366px) {
+  dt.sizeP{
+    font-size: 14px;
+  }
+}
+.box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.scrollbar
+{
+	height: 220px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.force-overflow
+{
+	min-height: 200px;
+}
+
+.scrollbar2
+{
+	height: 650px;
+  overflow-y: scroll;
+}
+
+.force-overflow2
+{
+	min-height: 550px;
+}
+
+.scrollbar3
+{
+	height: 180px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.force-overflow3
+{
+	min-height: 170px;
+}
+
+.scrollbar4
+{
+	height: 160px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.force-overflow4
+{
+	min-height: 140px;
+}
+
+.scrollbar5
+{
+	height: 165px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.force-overflow5
+{
+	min-height: 155px;
+}
+
+
+#style-1::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: transparent;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #67757C;
+}
+
+.button_L{
+  cursor: pointer;
+}
+
+
+.modifCard_L{
+  height: 130px; 
+  -webkit-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%)!important;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%); 
+  border-radius: 4px; 
+  margin-top:  px; 
+  padding-top: 5px;
+}
+/*****************************/
+textarea {
+  position: relative;
+  z-index: 2;
+  border: 2px solid #1887c7;
+  border-radius: 0;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  transition: transform 1s;
+  border-radius: 10px;
+}
+
+textarea:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px #1887c76c;
+  
+}
+/*********************************/
+.roundW {
+  display:block;
+  width:20px;
+  height:20px;
+  line-height:20px;
+  border: 0px solid #f5f5f5;
+  border-radius: 50%;
+  color:#f5f5f5;
+  text-align:center;
+  text-decoration:none;
+  background: #555777;
+  box-shadow: 0 0 1px gray;
+  font-size:15px;
+  font-weight:bold;
+}
+.roundW:hover {
+  background: #777555;
+}
+
+/*********************************************/
+/*Tooltip*/
+/*********************************************/
+
+/* 
+  You want a simple and fancy tooltip?
+  Just copy all [data-tooltip] blocks:
+*/
+[data-tooltip] {
+  --arrow-size: 5px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + var(--arrow-size));
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 300px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 6px;
+  text-indent: 30px;
+  text-align: justify;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: normal;
+  color: #ffffff;
+  background: #333333;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%,  calc(0px - var(--arrow-size))) scale(0.5);
+}
+
+/* Tooltip arrow */
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: var(--arrow-size) var(--arrow-size) 0px var(--arrow-size); /* CSS triangle */
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s; /* If the mouse leaves the element, 
+                              the transition effects for the 
+                              tooltip arrow are "turned off" */
+  transform-origin: top;   /* Orientation setting for the
+                              slide-down effect */
+  transform: translateX(-50%) scaleY(0);
+}
+
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(1);
+}
+/* 
+  Arrow slide down effect only on mouseenter (NOT on mouseleave)
+*/
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s; /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+/*
+  That's it for the basic tooltip.
+
+  If you want some adjustability
+  here are some orientation settings you can use:
+*/
+
+/* LEFT */
+/* Tooltip + arrow */
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+  left: auto;
+  right: calc(100% + var(--arrow-size));
+  bottom: 50%;
+}
+
+/* Tooltip */
+[data-tooltip-location="left"]:before {
+  transform: translate(calc(0px - var(--arrow-size)), 50%) scale(0.5);
+}
+[data-tooltip-location="left"]:hover:before {
+  transform: translate(calc(0px - var(--arrow-size)), 50%) scale(1);
+}
+
+/* Arrow */
+[data-tooltip-location="left"]:after {
+  border-width: var(--arrow-size) 0px var(--arrow-size) var(--arrow-size);
+  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  transform-origin: left;
+  transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="left"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* RIGHT */
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after {
+  left: calc(100% + var(--arrow-size));
+  bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before {
+  transform: translate(var(--arrow-size), 50%) scale(0.5);
+}
+[data-tooltip-location="right"]:hover:before {
+  transform: translate(var(--arrow-size), 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after {
+  border-width: var(--arrow-size) var(--arrow-size) var(--arrow-size) 0px;
+  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  transform-origin: right;
+  transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="right"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after {
+  top: calc(100% + var(--arrow-size));
+  bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before {
+  transform: translate(-50%, var(--arrow-size)) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before {
+  transform: translate(-50%, var(--arrow-size)) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after {
+  border-width: 0px var(--arrow-size) var(--arrow-size) var(--arrow-size);
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}
+
+/********************************************/
+.dropdown > summary::before {
+  display: none;
+}
+
+.dropdown[open] > summary::before {
+    content: ' ';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.classAux{
+  width: 15em;
+  height: 10em;
+  border: 2px solid #1887c7;
+  border-radius: 3px;
+}
+
+/* Botón de texto, simbólico, mixto */
+.btn-govco {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco.fill-btn-govco:hover,
+.btn-govco.fill-btn-govco:focus-visible,
+.btn-govco.outline-btn-govco:hover,
+.btn-govco.outline-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:hover,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  background-color: rgba(51,102,204,0.80);
+  border-color: rgba(51,102,204,1);
+  color: #FFFFFF;
+}
+
+.btn-govco.fill-btn-govco:focus-visible,
+.btn-govco.outline-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco.fill-btn-govco,
+.btn-govco.outline-btn-govco {
+  border-color: #3366cc;
+}
+
+.btn-govco.fill-btn-govco, 
+.btn-govco.outline-secundary-btn-govco {
+  background-color: #3366CC;
+  color: #FFFFFF;
+}
+
+.btn-govco.outline-btn-govco,
+.btn-govco.fill-secundary-btn-govco,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  background-color: #FFFFFF;
+  color: #3366CC;
+}
+
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco.fill-secundary-btn-govco:hover,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:disabled,
+.btn-govco.fill-secundary-btn-govco,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:disabled,
+.btn-govco.outline-secundary-btn-govco {
+  border-color: #FFFFFF;
+}
+
+
+/*---Red----*/
+.btn-govco-red {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-red.fill-btn-govco-red:hover,
+.btn-govco-red.fill-btn-govco-red:focus-visible,
+.btn-govco-red.outline-btn-govco-red:hover,
+.btn-govco-red.outline-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:hover,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  background-color: rgba(168,5,33,0.8);
+  border-color: rgba(168,5,33,0.8);
+  color: #FFFFFF;
+}
+
+.btn-govco-red.fill-btn-govco-red:focus-visible,
+.btn-govco-red.outline-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-red.fill-btn-govco-red,
+.btn-govco-red.outline-btn-govco-red {
+  border-color: #A80521;
+}
+
+.btn-govco-red.fill-btn-govco-red, 
+.btn-govco-red.outline-secundary-btn-govco-red {
+  background-color: #A80521;
+  color: #FFFFFF;
+}
+
+.btn-govco-red.outline-btn-govco-red,
+.btn-govco-red.fill-secundary-btn-govco-red,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  background-color: #FFFFFF;
+  color: #A80521;
+}
+
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-red:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-red.fill-secundary-btn-govco-red:hover,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:disabled,
+.btn-govco-red.fill-secundary-btn-govco-red,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:disabled,
+.btn-govco-red.outline-secundary-btn-govco-red {
+  border-color: #FFFFFF;
+}
+
+/*------yellow--------*/
+
+.btn-govco-yellow {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  background-color: rgba(255,171,0,.8);
+  border-color: rgba(255,171,0,1);
+  color: #FFFFFF;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow,
+.btn-govco-yellow.outline-btn-govco-yellow {
+  border-color: #FFAB00;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow, 
+.btn-govco-yellow.outline-secundary-btn-govco-yellow {
+  background-color: #FFAB00;
+  color: #FFFFFF;
+}
+
+.btn-govco-yellow.outline-btn-govco-yellow,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  background-color: #FFFFFF;
+  color: #FFAB00;
+}
+
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-yellow:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:disabled,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:disabled,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow {
+  border-color: #FFFFFF;
+}
+
+/*------green-----------*/
+
+.btn-govco-green {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-green.fill-btn-govco-green:hover,
+.btn-govco-green.fill-btn-govco-green:focus-visible,
+.btn-govco-green.outline-btn-govco-green:hover,
+.btn-govco-green.outline-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:hover,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  background-color: rgba(6,145,105,.8);
+  border-color: rgba(6,145,105,1);
+  color: #FFFFFF;
+}
+
+.btn-govco-green.fill-btn-govco-green:focus-visible,
+.btn-govco-green.outline-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-green.fill-btn-govco-green,
+.btn-govco-green.outline-btn-govco-green {
+  border-color: #069169;
+}
+
+.btn-govco-green.fill-btn-govco-green, 
+.btn-govco-green.outline-secundary-btn-govco-green {
+  background-color: #069169;
+  color: #FFFFFF;
+}
+
+.btn-govco-green.outline-btn-govco-green,
+.btn-govco-green.fill-secundary-btn-govco-green,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  background-color: #FFFFFF;
+  color: #069169;
+}
+
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-green:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-green.fill-secundary-btn-govco-green:hover,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:disabled,
+.btn-govco-green.fill-secundary-btn-govco-green,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:disabled,
+.btn-govco-green.outline-secundary-btn-govco-green {
+  border-color: #FFFFFF;
+}
+
+/*---position buttom --*/
+
+.position-button-right{
+  display: flex;
+  justify-content: right;
+}
+
+.position-button-left{
+  display: flex;
+  justify-content: left;
+}
+
+@media (max-width: 780px) {
+  .position-button-right{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .position-button-left{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1490px) and (min-width:999px){
+  .position-button-right{
+    display: flex;
+    justify-content: center !important;
+  }
+  
+  .position-button-left{
+    display: flex;
+    justify-content: center !important;
+  }
+}
+
+/**********************************************************/
+
+.titulo-tabla {
+  text-align: center;
+  margin-bottom: 15px !important;
+}
+
+.checkout-tabla {
+  display: none!important;
+}
+
+/* estilos del contenedor */
+.contenedor-tabla {
+  width: 1088px;
+  margin: 0 auto;
+}
+
+.encabezado-tabla {
+  background: #004884;
+  width: 100%;
+}
+
+
+/* estilos generales de la tabla */
+.table-general {
+  border: 2px solid #E6EFFD !important;
+  opacity: 1;
+  font-family: 'Works sans', sans-serif;
+  max-width: 750px !important;
+}
+
+.table-general thead th {
+  padding-top: 14px;
+  padding-left: 15px;
+  padding-right: 0px;
+}
+
+.table-general thead th:nth-child(1) {
+  padding-left: 20px;
+}
+
+
+.table-general thead th:nth-child(1) {
+  width: 10%;
+}
+
+.table-general thead th:nth-child(2) {
+  width: 10%;
+}
+
+.table-general thead th:nth-child(3) {
+  width: 50%;
+}
+
+.table-general thead th:nth-child(4) {
+  width: 30%;
+}
+
+.table-general tbody td {
+  padding-left: 15px;
+  padding-right: 0px;
+}
+
+.table-general tbody td:nth-child(1) {
+  padding-left: 20px;
+  padding-right: 0px;
+}
+
+.table-general tbody td:nth-child(3){
+  text-align: left;
+}
+
+.table-general thead tr th {
+  vertical-align: top !important;
+  background: #E6EFFD;
+  color: #004884;
+  text-align: center !important;
+  height: 30px !important;
+  font-family: 'Works sans', sans-serif !important;
+  letter-spacing: 0px;
+  font-size: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  
+}
+
+
+.table-general tbody {
+  overflow-y: auto;
+  width: 100%;
+  max-height: 394px;
+
+} 
+
+
+/* estilos del scroll */
+.table-general tbody::-webkit-scrollbar {
+  width: 8px;
+  background: #E6EFFD;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.table-general tbody::-webkit-scrollbar-thumb {
+  background: #004884;
+  border-radius: 12px;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  height: 21px;
+}
+
+
+/* estilos del tbody */
+.contenido-tablas {
+  color: #4b4b4b;
+  font-family: "Work sans", sans-serif;
+  font-size: 16px;
+}
+
+.contenido-tablas td {
+  max-height: 30px;
+  vertical-align: middle !important;
+}
+
+.contenido-hover tr:hover,
+.table-general:not(.table-acentuada) tbody.contenido-hover tr:nth-child(even):hover {
+  background: #FFAB001A!important;
+}
+
+.fila-activa tr:active,
+.table-general:not(.table-acentuada) tbody.fila-activa tr:nth-child(even):active {
+background: #FFAB001A!important;
+}
+
+
+
+/*---------------------------------------------------------------------------------------*/
+/*Estilos de tablas adaptativos*/
+
+.table-adaptativo {
+  width: 340px !important;
+  border: 2px solid #E6EFFD !important;
+  opacity: 1;
+  font-family: 'Works sans', sans-serif;
+  font-size: 12px;
+}
+
+.table-adaptativo thead th {
+  border-style: none !important;
+}
+
+.table-adaptativo thead th:nth-child(1) {
+  width: 90%;
+}
+
+.table-adaptativo thead th:nth-child(2) {
+  width: 10%;
+}
+
+.table-adaptativo thead tr th {
+  vertical-align: top !important;
+  background: #E6EFFD;
+  color: #004884;
+  height: 25px !important;
+  font-family: 'Works sans', sans-serif !important;
+  letter-spacing: 0px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.contenido-adaptativo {
+  color: #4b4b4b;
+  font-family: "Work sans", sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.table-adaptativo thead th {
+  padding-top: 14.31px;
+  padding-left: 15px;
+  text-align: left;
+  padding-right: 0px;
+}
+
+.table-adaptativo thead th:nth-child(1) {
+  padding-left: 20px;
+}
+
+.table-adaptativo tbody td {
+  padding-left: 15px;
+  text-align: left;
+  padding-right: 0px;
+}
+
+.table-adaptativo tbody td:nth-child(1) {
+  padding-left: 20px;
+}
+
+.table-adaptativo tbody td:last-child {
+  padding-right: 20px;
+}
+
+.table-adaptativo tbody td:nth-child(2){
+  text-align: right;
+}
+
+
+
+.contenido-adaptativo {
+  color: #4b4b4b;
+  font-family: "Work sans", sans-serif;
+  font-size: 14px;
+  text-align: left;
+}
+
+.contenido-adaptativo td {
+  height: 30px;
+  vertical-align: middle !important;
+}
+
+.contenido-hover tr:hover,
+.table-adaptativo:not(.table-adaptativo) tbody.contenido-hover tr:nth-child(even):hover {
+  background: #FFAB001A!important;
+}
+
+.fila-activa tr:active,
+.table-adaptativo:not(.table-adaptativo) tbody.fila-activa tr:nth-child(even):active {
+background: #FFAB001A!important;
+}

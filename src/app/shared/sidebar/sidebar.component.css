@@ -1,0 +1,50 @@
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color:#1e80b950;
+  }
+  
+  .change_tools{
+    background: transparent;
+    width: 100%px;
+  }
+  
+  .hide_span{
+    display: block;
+  }
+  
+  .hide_tools{
+    display: none;
+  }
+  
+  .hide_name{
+    display: inline-block;
+  }
+  
+  .margin_aux{
+    margin-left: 0px;
+  }
+  
+  .margin_left_aux{
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 1169px) {
+    
+    .hide_span{
+      display: none !important;
+    }
+  
+    .margin_aux{
+      margin-left: 5px;
+    }
+  
+    .hide_name{
+      display: none !important;
+    }
+    .hide_tools{
+      display: block !important;
+    }
+
+    .margin_left_aux{
+      margin-left: 15px;
+      margin-right: -15px;
+    }
+  }

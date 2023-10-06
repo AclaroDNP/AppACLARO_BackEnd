@@ -1,0 +1,401 @@
+
+  <!---------------------------------------------------------------->
+  
+  <div class="row">
+    <div class="card-body col-lg-8">
+      <div class="form-group">
+        <label class="font_1" style="font-weight: 600; color: #004884">Ingresar texto</label>
+  
+  
+        <div class="container">
+          <div class="row">
+  
+            <div *ngIf="displayTextarea === true">
+  
+  
+              <div #editableDivOne class="text-ui baron__scroller" contenteditable="true">
+                <ng-container *ngFor="let zz of Array_T; let uu=index" style="z-index: 1;">
+                  <span *ngIf="Array_Underline[uu]=== 0">{{zz}}</span>
+                  <span *ngIf="Array_Underline[uu]=== 1 && !Array_Highlights[uu]">
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'AGREEMENT_DET_NOUN' || textoCorregidos[cumsumArray[uu]].ruleId === 'LO_LOS'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2; "
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(40,180,99,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'MORFOLOGIK_RULE_ES' || textoCorregidos[cumsumArray[uu]].ruleId === 'A_PARTICIPIO' || textoCorregidos[cumsumArray[uu]].ruleId === 'AH_INF' || textoCorregidos[cumsumArray[uu]].ruleId === 'HA_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'EL_TILDE' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIACRITICS_OTHERS'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{ messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-style: solid;text-decoration-thickness: 2px;text-decoration-color: rgba(255,0,0,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'PREP_VERB' || textoCorregidos[cumsumArray[uu]].ruleId === 'ID_HUBO_HUBIERON' || textoCorregidos[cumsumArray[uu]].ruleId === 'SURGIR_EFECTO' || textoCorregidos[cumsumArray[uu]].ruleId === 'Y_E_O_U' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(243,156,18,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'DOUBLE_PUNCTUATION' || textoCorregidos[cumsumArray[uu]].ruleId === 'UPPERCASE_SENTENCE_START' || textoCorregidos[cumsumArray[uu]].ruleId === 'ES_UNPAIRED_BRACKETS' || textoCorregidos[cumsumArray[uu]].ruleId === 'WHITESPACE_RULE' || textoCorregidos[cumsumArray[uu]] .ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || textoCorregidos[cumsumArray[uu]].ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || textoCorregidos[cumsumArray[uu]].ruleId === 'SPANISH_WORD_REPEAT_RULE' || textoCorregidos[cumsumArray[uu]].ruleId === 'ESPACIO_DESPUES_DE_PUNTO'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(142,68,173,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId ===  'RELACIONADO_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIFFERENT_ERROR'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(128,128,128,0.5);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+
+                  </span>
+                  <span *ngIf="Array_Underline[uu]=== 1 && Array_Highlights[uu]">
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'AGREEMENT_DET_NOUN' || textoCorregidos[cumsumArray[uu]].ruleId === 'LO_LOS'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(40,180,99,1);  background-color:rgba(40,180,99,0.5);border-radius: 5px"
+                      (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'MORFOLOGIK_RULE_ES' || textoCorregidos[cumsumArray[uu]].ruleId === 'A_PARTICIPIO' || textoCorregidos[cumsumArray[uu]].ruleId === 'AH_INF' || textoCorregidos[cumsumArray[uu]].ruleId === 'HA_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'EL_TILDE' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIACRITICS_OTHERS'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2" data-bs-placement="top"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(255,0,0,1); background-color: rgba(255,0,0,0.5);border-radius: 5px"
+                      (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'PREP_VERB' || textoCorregidos[cumsumArray[uu]].ruleId === 'ID_HUBO_HUBIERON' || textoCorregidos[cumsumArray[uu]].ruleId === 'SURGIR_EFECTO' || textoCorregidos[cumsumArray[uu]].ruleId === 'Y_E_O_U' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(243,156,18,1); background-color:rgba(243,156,18,0.5);border-radius: 5px"
+                      (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'DOUBLE_PUNCTUATION' || textoCorregidos[cumsumArray[uu]].ruleId === 'UPPERCASE_SENTENCE_START' || textoCorregidos[cumsumArray[uu]].ruleId === 'ES_UNPAIRED_BRACKETS' || textoCorregidos[cumsumArray[uu]].ruleId === 'WHITESPACE_RULE' || textoCorregidos[cumsumArray[uu]] .ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || textoCorregidos[cumsumArray[uu]].ruleId === 'SPANISH_WORD_REPEAT_RULE' || textoCorregidos[cumsumArray[uu]].ruleId === 'ESPACIO_DESPUES_DE_PUNTO' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(142,68,173,1);background-color:rgba(142,68,173,0.5);border-radius: 5px"
+                      (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId ===  'RELACIONADO_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIFFERENT_ERROR'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(128,128,128,0.5); background-color:rgba(133,146,158,0.5);border-radius: 5px"
+                      (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+
+                  </span>
+                </ng-container>
+              </div>
+  
+  
+              <div class="container mt-2">
+                <div class="row ">
+                  <div class="col  position-button-left mb-2" style="min-width: 275px;">
+  
+                    <button
+                      (click)="hidePopup();showPopupTwo=false;closePopup();newTextoString(editableDivOne.innerText); cargaCorrectorTwo(); removeBreaks();displaySpinner(); Errors(); checkText();showTextarea();"
+                      class="btn-govco fill-btn-govco d-inline "
+                      style="width: 125px; height: 42px; margin-right: 5px; ">Ejecutar</button>
+                    <button (click)="showPopup = false; clearText(); Errors()" class="btn-govco-red fill-btn-govco-red "
+                      style="width: 125px; height: 42px; " type="button">Borrar</button>
+  
+                  </div>
+                  <div class="col position-button-right " style="min-width: 275px;">
+  
+                    <button (click)="showPopup = false;clearText(); getTextPrevious(); Errors()"
+                      class="btn-govco-green fill-btn-govco-green " style="width: 250px; height: 42px;"
+                      type="button">Obtener Texto Anterior</button>
+  
+                  </div>
+                </div>
+              </div>
+  
+  
+            </div>
+            <div *ngIf="displayTextarea === false">
+  
+              <div #editableDivTwo class="text-ui baron__scroller" contenteditable="true">
+                <ng-container *ngFor="let zz of Array_T; let uu=index">
+                  <span *ngIf="Array_Underline[uu]=== 0">{{zz}}</span>
+                  <span *ngIf="Array_Underline[uu]=== 1 && !Array_Highlights[uu]" style="position: relative;">
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'AGREEMENT_DET_NOUN' || textoCorregidos[cumsumArray[uu]].ruleId === 'LO_LOS'">
+                      <span [ngTemplateOutlet]="tempPopup"
+                        [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2"
+                        style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(40,180,99,1);"
+                        (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    </span>
+  
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'MORFOLOGIK_RULE_ES' || textoCorregidos[cumsumArray[uu]].ruleId === 'A_PARTICIPIO' || textoCorregidos[cumsumArray[uu]].ruleId === 'AH_INF' || textoCorregidos[cumsumArray[uu]].ruleId === 'HA_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'EL_TILDE' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIACRITICS_OTHERS'"><span
+                        [ngTemplateOutlet]="tempPopup"
+                        [ngTemplateOutletContext]="{ messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2"
+                        style="text-decoration-line: underline;text-decoration-style: solid;text-decoration-thickness: 2px;text-decoration-color: rgb(255, 0, 0);"
+                        (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu]);">{{zz}}</span></span>
+  
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'PREP_VERB' || textoCorregidos[cumsumArray[uu]].ruleId === 'ID_HUBO_HUBIERON' || textoCorregidos[cumsumArray[uu]].ruleId === 'SURGIR_EFECTO' || textoCorregidos[cumsumArray[uu]].ruleId === 'Y_E_O_U' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(243,156,18,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'DOUBLE_PUNCTUATION' || textoCorregidos[cumsumArray[uu]].ruleId === 'UPPERCASE_SENTENCE_START' || textoCorregidos[cumsumArray[uu]].ruleId === 'ES_UNPAIRED_BRACKETS' || textoCorregidos[cumsumArray[uu]].ruleId === 'WHITESPACE_RULE' || textoCorregidos[cumsumArray[uu]].ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || textoCorregidos[cumsumArray[uu]].ruleId === 'SPANISH_WORD_REPEAT_RULE'  || textoCorregidos[cumsumArray[uu]].ruleId === 'ESPACIO_DESPUES_DE_PUNTO'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(142,68,173,1);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId ===  'RELACIONADO_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIFFERENT_ERROR'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(128, 128, 128,0.5);"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+  
+                  </span>
+                  <!------------------------------------------------------------------------------------------------------>
+                  <span *ngIf="Array_Underline[uu]=== 1 && Array_Highlights[uu]">
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'AGREEMENT_DET_NOUN' || textoCorregidos[cumsumArray[uu]].ruleId === 'LO_LOS'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(40,180,99,1);  background-color:rgba(40,180,99,0.5);border-radius: 5px"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'MORFOLOGIK_RULE_ES' || textoCorregidos[cumsumArray[uu]].ruleId === 'A_PARTICIPIO' || textoCorregidos[cumsumArray[uu]].ruleId === 'AH_INF' || textoCorregidos[cumsumArray[uu]].ruleId === 'HA_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'EL_TILDE' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIACRITICS_OTHERS' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(255,0,0,1); background-color: rgba(255,0,0,0.5);border-radius: 5px"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+  
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'PREP_VERB' || textoCorregidos[cumsumArray[uu]].ruleId === 'ID_HUBO_HUBIERON' || textoCorregidos[cumsumArray[uu]].ruleId === 'SURGIR_EFECTO' || textoCorregidos[cumsumArray[uu]].ruleId === 'Y_E_O_U' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(243,156,18,1); background-color:rgba(243,156,18,0.5);border-radius: 5px"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId === 'DOUBLE_PUNCTUATION' || textoCorregidos[cumsumArray[uu]].ruleId === 'UPPERCASE_SENTENCE_START' || textoCorregidos[cumsumArray[uu]].ruleId === 'ES_UNPAIRED_BRACKETS' || textoCorregidos[cumsumArray[uu]].ruleId === 'WHITESPACE_RULE' || textoCorregidos[cumsumArray[uu]].ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || textoCorregidos[cumsumArray[uu]].ruleId === 'SPANISH_WORD_REPEAT_RULE' || textoCorregidos[cumsumArray[uu]].ruleId === 'ESPACIO_DESPUES_DE_PUNTO' "
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(142,68,173,1);background-color:rgba(142,68,173,0.5);border-radius: 5px"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+                    <span
+                      *ngIf="textoCorregidos[cumsumArray[uu]].ruleId ===  'RELACIONADO_A' || textoCorregidos[cumsumArray[uu]].ruleId === 'DIFFERENT_ERROR'"
+                      [ngTemplateOutlet]="tempPopup"
+                      [ngTemplateOutletContext]="{messageTwo:textoCorregidos[cumsumArray[uu]].message, replacementsTwo:textoCorregidos[cumsumArray[uu]].replacements, pp:uu, qq:cumsumArray[uu]}"
+                      class="pointer2"
+                      style="text-decoration-line: underline;text-decoration-thickness: 2px;text-decoration-color: rgba(128,128,128,0.5); background-color:rgba(128,128,128,0.5);border-radius: 5px"
+                      (click)="positionPopup($event); onclick(); clickedTwo(cumsumArray[uu]);applyHighlightsTwo(uu,true);checkTypeError(cumsumArray[uu])">{{zz}}</span>
+  
+                  </span>
+  
+                </ng-container>
+              </div>
+  
+  
+              <div class="container mt-2">
+                <div class="row ">
+                  <div class="col  position-button-left mb-2" style="min-width: 275px;">
+                    <button
+                      (click)="hidePopup(); showPopupTwo=false;closePopup();newTextoString(editableDivTwo.innerText); cargaCorrectorTwo();removeBreaks();displaySpinner(); Errors(); checkText();showTextarea();"
+                      class="btn-govco fill-btn-govco "
+                      style="width: 125px; height: 42px; margin-right: 5px; ">Ejecutar</button>
+                    <button (click)="showPopup = false; clearText(); Errors()" class="btn-govco-red fill-btn-govco-red "
+                      style="width: 125px; height: 42px; " type="button">Borrar</button>
+  
+                  </div>
+                  <div class="col position-button-right " style="min-width: 275px;">
+  
+                    <button (click)="showPopup = false; clearText();getTextPrevious(); Errors()"
+                      class="btn-govco-green fill-btn-govco-green " style="width: 250px; height: 42px;"
+                      type="button">Obtener Texto Anterior</button>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!-------------------------------->
+  
+    <div class="card-body col-lg-4">
+  
+      <label class="m-1 font_1" style="font-weight: 600; color: #004884">Posibles Correcciones</label>
+      <hr>
+      <blockquote *ngIf="displayErrors && changeText === textoNuevo.texto" class="blockquote">
+        <span class="font_2">No se han encontrado errores.</span>
+      </blockquote>
+  
+  
+      <div *ngIf="displayBool" class="d-flex flex-column align-items-center mt-6 justify-content-center">
+        <div class="row">
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow me-3 ms-3 " style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+        </div>
+        <div class="row">
+          <strong>Cargando...</strong>
+        </div>
+      </div>
+  
+      <div *ngIf="!displayBool">
+        <div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example-2 position-relative"
+          style="height: 450px;" tabindex="0">
+          <ul class="list-group" *ngFor="let palabra of textoCorregidos; let ii = index">
+            <li *ngIf="Array_Boolean[ii] == true">
+              <div>
+  
+                <button *ngIf="palabra.ruleId === 'AGREEMENT_DET_NOUN' || palabra.ruleId === 'LO_LOS'"
+                  (click)="getIndex(ii); clicked(ii); applyHighlightsTwo(positions[ii],true);checkTypeError(ii)"
+                  role="button" class="button-concordancia">{{palabra.errorText}}
+                </button>
+  
+                <button
+                  *ngIf="palabra.ruleId === 'MORFOLOGIK_RULE_ES' || palabra.ruleId === 'A_PARTICIPIO' || palabra.ruleId === 'AH_INF' || palabra.ruleId === 'HA_A' || palabra.ruleId === 'EL_TILDE' || palabra.ruleId === 'DIACRITICS_OTHERS' "
+                  (click)="getIndex(ii); clicked(ii); applyHighlightsTwo(positions[ii],true);checkTypeError(ii)"
+                  role="button" class="button-ortografico">{{palabra.errorText}}
+                </button>
+  
+                <button
+                  *ngIf="palabra.ruleId === 'PREP_VERB' || palabra.ruleId === 'ID_HUBO_HUBIERON' || palabra.ruleId === 'SURGIR_EFECTO' || palabra.ruleId === 'Y_E_O_U' "
+                  (click)="getIndex(ii);clicked(ii);applyHighlightsTwo(positions[ii],true);checkTypeError(ii) "
+                  role="button" class="button-gramatical">{{palabra.errorText}}
+                </button>
+  
+                <button
+                  *ngIf="palabra.ruleId === 'DOUBLE_PUNCTUATION' || palabra.ruleId === 'UPPERCASE_SENTENCE_START' || palabra.ruleId === 'ES_UNPAIRED_BRACKETS' || palabra.ruleId === 'WHITESPACE_RULE' || palabra.ruleId === 'COMMA_PARENTHESIS_WHITESPACE' || palabra.ruleId === 'SPANISH_WORD_REPEAT_RULE' || palabra.ruleId === 'ESPACIO_DESPUES_DE_PUNTO'"
+                  (click)="getIndex(ii); clicked(ii);applyHighlightsTwo(positions[ii],true);checkTypeError(ii) "
+                  role="button" class="button-tipografico">{{palabra.errorText}}
+                </button>
+  
+                <button *ngIf="palabra.ruleId ===  'RELACIONADO_A' || palabra.ruleId ===  'DIFFERENT_ERROR'"
+                  (click)="getIndex(ii); clicked(ii);applyHighlightsTwo(positions[ii],true);checkTypeError(ii)"
+                  role="button" class="button-estilo">{{palabra.errorText}}
+                </button>
+                
+  
+                <div class="ms-5" *ngIf="showIndex === ii && showPopup">
+                  <div class="popup-two">
+                    <div class="row border-bottom-2">
+                      <div class="col-9 ">
+                        <span class="ignore-buttonP__text ms-1 fw-bolder">{{typeError}}</span>
+                      </div>
+                      <div class="col-3">
+                        <button class="popup__close pull-right" (click)="showIndex = false; showPopupTwo=false">
+                          <svg class="popup__close-icon" viewbox="0 0 15 15"
+                            style="font-size: 2.5rem; margin-right: 15px">
+                            <use xlink:href="#x-circle-fill"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+  
+                    <p class="popup__text me-2">{{palabra.message}}</p>
+                    <ul class="popup__list">
+                      <li class="popup__list-item"
+                        *ngFor="let repl of textoCorregidos[kk].replacements | slice:0:10;let jj = index">
+                        <button class="popup__buttonP"
+                          (click)="showIndex = false;showPopupTwo=false ;changeWordTargetTwo(ii,ii,jj,false,true);saveChangeText()">{{repl}}</button>
+                      </li>
+                    </ul>
+  
+                    <div class="popup__ignore">
+                      <button class="btn btn-outline-secondary"
+                        (click)="showIndex = false;showPopupTwo=false;changeWordTargetTwo(ii,ii,0,true,true) ">
+                        <svg class="ignore-buttonP__icon me-3" viewbox="0 0 12 12" width="15" height="15">
+                          <use xlink:href="#x-circle-fill"></use>
+                        </svg>
+                        <span class="ignore-buttonP__text">Ignorar opciones</span>
+                      </button>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+  
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  </div>
+  
+  
+  <!------------------------------------------------------>
+  <div class="col-lg-12 text-center position-relative">
+    <p class="card-text font_2">Conoce el funcionamiento de las herramientas y deja tus comentarios sobre Aclaro.</p>
+    <div>
+      <button routerLink="/comentarios" class="btn-govco outline-btn-govco ms-3 me-3 "
+        style="min-width: 200px;">Comentarios »</button>
+      <button routerLink="/description" class="btn-govco outline-btn-govco ms-3 me-3"
+        style="min-width: 200px;">Funcionamiento »</button>
+    </div>
+  </div>
+  <!------------------------------------------------------>
+  <ng-template #tempPopup id="popup" let-messageTwo="messageTwo" let-replacementsTwo="replacementsTwo" let-pp="pp"
+    let-qq="qq">
+  
+    <div #tempPopupTwo *ngIf="showIndexTwo === qq && showPopupTwo" class="popup" contenteditable="false"
+      [ngStyle]="popupPosition">
+      <div class="row border-bottom-2">
+        <div class="col-9 ">
+          <span class="ignore-buttonP__text ms-1 fw-bolder">{{typeError}}: </span>
+        </div>
+        <div class="col-3">
+          <button class="popup__close pull-right" (click)="showIndex = false;showIndexTwo = false;">
+            <svg class="popup__close-icon" viewbox="0 0 15 15" style="font-size: 2.5rem; margin-right: 15px">
+              <use xlink:href="#x-circle-fill"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+  
+      <p class="popup__text me-2">{{messageTwo}}</p>
+      <ul class="popup__list">
+        <li class="popup__list-item" *ngFor="let replt of replacementsTwo | slice:0:10; let ff = index">
+          <button class="popup__buttonP"
+            (click)="showIndex = false; changeWordTargetTwo(pp,qq,ff,false,false); showPopupTwo = false; saveChangeText()">{{replt}}</button>
+        </li>
+      </ul>
+  
+      <div class="popup__ignore">
+        <button class="btn btn-outline-secondary font_1"
+          style="border-radius: 1.563rem;line-height: 0.563rem;font-weight: 600;"
+          (click)="DeleteUnderline(qq);showIndexTwo = false;showIndex = false; showPopupTwo=false;changeWordTargetTwo(pp,qq,0,true,false); ">
+          <svg class="ignore-buttonP__icon me-3" viewbox="0 0 12 12" width="15" height="15">
+            <use xlink:href="#x-circle-fill"></use>
+          </svg>
+          <span class="ignore-buttonP__text">Ignorar opciones</span>
+        </button>
+      </div>
+    </div>
+  
+  </ng-template>
+  
+  

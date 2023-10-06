@@ -1,0 +1,357 @@
+.mt-6 {
+    margin-top: 7rem; 
+  }
+
+textarea {
+    position: relative;
+    z-index: 2;
+    border: 2px solid #1887c7;
+    border-radius: 0;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    transition: transform 1s;
+    border-radius: 10px;
+  }
+  
+textarea:focus{
+    outline: none;
+    box-shadow: 0 0 0 2px #1887c76c;
+    
+  }
+
+/**************************************/
+
+/* Botón de texto, simbólico, mixto */
+.btn-govco {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco.fill-btn-govco:hover,
+.btn-govco.fill-btn-govco:focus-visible,
+.btn-govco.outline-btn-govco:hover,
+.btn-govco.outline-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:hover,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  background-color: rgba(51,102,204,0.80);
+  border-color: rgba(51,102,204,1);
+  color: #FFFFFF;
+}
+
+.btn-govco.fill-btn-govco:focus-visible,
+.btn-govco.outline-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco.fill-btn-govco,
+.btn-govco.outline-btn-govco {
+  border-color: #3366cc;
+}
+
+.btn-govco.fill-btn-govco, 
+.btn-govco.outline-secundary-btn-govco {
+  background-color: #3366CC;
+  color: #FFFFFF;
+}
+
+.btn-govco.outline-btn-govco,
+.btn-govco.fill-secundary-btn-govco,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  background-color: #FFFFFF;
+  color: #3366CC;
+}
+
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco.fill-secundary-btn-govco:hover,
+.btn-govco.fill-secundary-btn-govco:focus-visible,
+.btn-govco.fill-secundary-btn-govco:disabled,
+.btn-govco.fill-secundary-btn-govco,
+.btn-govco.outline-secundary-btn-govco:hover,
+.btn-govco.outline-secundary-btn-govco:focus-visible,
+.btn-govco.outline-secundary-btn-govco:disabled,
+.btn-govco.outline-secundary-btn-govco {
+  border-color: #FFFFFF;
+}
+
+
+/*---Red----*/
+.btn-govco-red {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-red.fill-btn-govco-red:hover,
+.btn-govco-red.fill-btn-govco-red:focus-visible,
+.btn-govco-red.outline-btn-govco-red:hover,
+.btn-govco-red.outline-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:hover,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  background-color: rgba(168,5,33,0.8);
+  border-color: rgba(168,5,33,0.8);
+  color: #FFFFFF;
+}
+
+.btn-govco-red.fill-btn-govco-red:focus-visible,
+.btn-govco-red.outline-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-red.fill-btn-govco-red,
+.btn-govco-red.outline-btn-govco-red {
+  border-color: #A80521;
+}
+
+.btn-govco-red.fill-btn-govco-red, 
+.btn-govco-red.outline-secundary-btn-govco-red {
+  background-color: #A80521;
+  color: #FFFFFF;
+}
+
+.btn-govco-red.outline-btn-govco-red,
+.btn-govco-red.fill-secundary-btn-govco-red,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  background-color: #FFFFFF;
+  color: #A80521;
+}
+
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-red:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-red.fill-secundary-btn-govco-red:hover,
+.btn-govco-red.fill-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.fill-secundary-btn-govco-red:disabled,
+.btn-govco-red.fill-secundary-btn-govco-red,
+.btn-govco-red.outline-secundary-btn-govco-red:hover,
+.btn-govco-red.outline-secundary-btn-govco-red:focus-visible,
+.btn-govco-red.outline-secundary-btn-govco-red:disabled,
+.btn-govco-red.outline-secundary-btn-govco-red {
+  border-color: #FFFFFF;
+}
+
+/*------yellow--------*/
+
+.btn-govco-yellow {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  background-color: rgba(255,171,0,.8);
+  border-color: rgba(255,171,0,1);
+  color: #FFFFFF;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow,
+.btn-govco-yellow.outline-btn-govco-yellow {
+  border-color: #FFAB00;
+}
+
+.btn-govco-yellow.fill-btn-govco-yellow, 
+.btn-govco-yellow.outline-secundary-btn-govco-yellow {
+  background-color: #FFAB00;
+  color: #FFFFFF;
+}
+
+.btn-govco-yellow.outline-btn-govco-yellow,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  background-color: #FFFFFF;
+  color: #FFAB00;
+}
+
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-yellow:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow:disabled,
+.btn-govco-yellow.fill-secundary-btn-govco-yellow,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:hover,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:focus-visible,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow:disabled,
+.btn-govco-yellow.outline-secundary-btn-govco-yellow {
+  border-color: #FFFFFF;
+}
+
+/*------green-----------*/
+
+.btn-govco-green {
+  border-radius: 1.563rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 0.563rem;
+  padding: 0.75rem 1rem;
+  border-width: 0.125rem;
+  border-style: solid;
+}
+
+.btn-govco-green.fill-btn-govco-green:hover,
+.btn-govco-green.fill-btn-govco-green:focus-visible,
+.btn-govco-green.outline-btn-govco-green:hover,
+.btn-govco-green.outline-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:hover,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  background-color: rgba(6,145,105,.8);
+  border-color: rgba(6,145,105,1);
+  color: #FFFFFF;
+}
+
+.btn-govco-green.fill-btn-govco-green:focus-visible,
+.btn-govco-green.outline-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  outline: max(0.125rem, 0.125rem) solid #000000;
+  outline-offset: max(0.125rem, 0.188rem);
+}
+
+.btn-govco-green.fill-btn-govco-green,
+.btn-govco-green.outline-btn-govco-green {
+  border-color: #069169;
+}
+
+.btn-govco-green.fill-btn-govco-green, 
+.btn-govco-green.outline-secundary-btn-govco-green {
+  background-color: #069169;
+  color: #FFFFFF;
+}
+
+.btn-govco-green.outline-btn-govco-green,
+.btn-govco-green.fill-secundary-btn-govco-green,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  background-color: #FFFFFF;
+  color: #069169;
+}
+
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+.btn-govco-green:disabled {
+  background-color: #737373;
+  border-color: #737373;
+  color: #FFFFFF;
+  pointer-events: none;
+}
+
+.btn-govco-green.fill-secundary-btn-govco-green:hover,
+.btn-govco-green.fill-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.fill-secundary-btn-govco-green:disabled,
+.btn-govco-green.fill-secundary-btn-govco-green,
+.btn-govco-green.outline-secundary-btn-govco-green:hover,
+.btn-govco-green.outline-secundary-btn-govco-green:focus-visible,
+.btn-govco-green.outline-secundary-btn-govco-green:disabled,
+.btn-govco-green.outline-secundary-btn-govco-green {
+  border-color: #FFFFFF;
+}
+
+/*---position buttom --*/
+
+.position-button-right{
+  display: flex;
+  justify-content: right;
+}
+
+.position-button-left{
+  display: flex;
+  justify-content: left;
+}
+
+@media (max-width: 780px) {
+  .position-button-right{
+    display: flex;
+    justify-content: center !important;
+  }
+  
+  .position-button-left{
+    display: flex;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 1498px) and (min-width:999px){
+  .position-button-right{
+    display: flex;
+    justify-content: center !important;
+  }
+  
+  .position-button-left{
+    display: flex;
+    justify-content: center !important;
+  }
+}

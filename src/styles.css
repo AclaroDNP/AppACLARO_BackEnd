@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'WorkSans-Regular';
+    src: url('assets/fonts/Work_Sans/static/WorkSans-Regular.ttf');
+}
+html, body { height: 100%; }
+
+.font_1 {
+    font-family: 'Montserrat', sans-serif;
+ }
+
+.font_2{
+    font-family: 'WorkSans-Regular', sans-serif;
+}
+

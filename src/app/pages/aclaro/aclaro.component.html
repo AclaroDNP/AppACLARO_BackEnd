@@ -1,0 +1,220 @@
+<div class="container-fluid" style="margin-top: -25px;">
+    <div class="row bg-info">
+      <div class="col-sm" style="background-color: #3366cc;">
+  
+        <div id="carouselExampleGovco3" class="carousel slide multiple-carrusel-govco carousel-fade carrusel-govco"
+          data-bs-ride="carousel" data-bs-pause="hover">
+          <div class="carousel-inner ">
+  
+            <div class="carousel-item wrapper active" >
+  
+              <div class="hover2 hide_img_carrusel"></div>
+              <div class="row text-center  hover3" >
+  
+                <div class="col text_align_two ">
+                  <h2 class="text-light fw-bold font_1">ACLARO</h2>
+                  <span class="text-light font_1 margin_text_title" style="font-size: 25px;">Asistente de escritura de Lenguaje
+                    Claro</span>
+                </div>
+  
+                <div class="col hide_img_carrusel"></div>
+              </div>
+  
+              <div class="row hide_img_carrusel" >
+                <div class="col" style="height: 100%;">
+                </div>
+                <div class="col" style="width:100%; text-align: end">
+                  <img src="../../../assets/imagenes/carrusel-3.jpg" />
+                </div>
+              </div>
+  
+  
+            </div>
+  
+            <div class="carousel-item wrapper ">
+              <div class="hover2 "></div>
+              <div class="row text-center  hover3">
+  
+                <div class="col text_align_two " >
+                  <h2 class="text-light fw-bold font_1">Sobre el proyecto</h2>
+                  <span class="text-light font_1 margin_text" >ACLARO es
+                    una herramienta que se basa en un modelo lingüístico computacional y de corpus, que permite
+                    medir la legibilidad de un texto, identifica palabras complejas y recomienda palabras de fácil
+                    comprensión para su sustitución.</span>
+                </div>
+  
+                <div class="col hide_img_carrusel"></div>
+              </div>
+  
+              <div class="row hide_img_carrusel">
+                <div class="col" style="height: 100%;">
+                </div>
+                <div class="col" style="height: 100%; text-align: end">
+                  <img src="../../../assets/imagenes/carrusel-2.jpg" />
+                </div>
+              </div>
+  
+  
+            </div>
+  
+            <div class="carousel-item wrapper ">
+              <div class="hover2"></div>
+              <div class="row text-center  hover3">
+  
+                <div class="col text_align_two ">
+                  <h2 class="text-light fw-bold font_1">Que busca?</h2>
+                  <span class="text-light font_1 margin_text" >El
+                    DNP, en su esfuerzo por
+                    mejorar la eficiencia del Estado y su comunicación con la ciudadanía, ha desarrollado ACLARO, una
+                    solución de software para que los documentos elaborados por los servidores y colaboradores públicos
+                    estén en un lenguaje claro.</span>
+                </div>
+  
+                <div class="col hide_img_carrusel"></div>
+              </div>
+  
+              <div class="row hide_img_carrusel">
+                <div class="col" style="height: 100%;">
+                </div>
+                <div class="col" style="height: 100%; text-align: end">
+                  <img src="../../../assets/imagenes/carrusel-4.jpg" />
+                </div>
+              </div>
+  
+  
+            </div>
+          </div>
+  
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleGovco3"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próxima imagen</span>
+          </button>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleGovco3"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior imagén</span>
+          </button>
+  
+          <div class="control-start-pause">
+  
+            <button id="pauseButton" (click)="changeButton()" class="controls pause active" type="button">
+              <i style="color:white;" class="fa fa-pause" *ngIf="showButton === false"></i>
+              <i style="color:white;" class="fa fa-play" *ngIf="showButton === true"></i>
+              <span *ngIf="showButton === true">Reproducir</span>
+              <span *ngIf="showButton === false ">Pause</span>
+            </button>
+          </div>
+  
+          <div class="control-start-pause">
+  
+          </div>
+  
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleGovco3" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleGovco3" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleGovco3" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  
+  
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+  
+      <div class="col text_align" style="margin-top: 75px;">
+        <div class="card text_align margin_left_aux" style="width: 60%;">
+          <div class="mx-auto">
+            <div style="position: relative;">
+              <div class="circle" style="display: block;"></div>
+              <div style="position: absolute; margin-top: -75px;">
+                <img src="../../../assets/iconos/logo-gramatica.png" style="width: 75px;" />
+              </div>
+  
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <p class="font_1" style="font-size: 20px; font-weight: 1000;">Corrección Ortográfica</p>
+            <p class="card-text font_2">Identifica y señala errores ortográficos o de digitación en el texto y presenta
+              alternativas para su corrección.</p>
+          </div>
+          <button class="btn-govco outline-btn-govco  mx-auto" style="min-width: 150px; height: 40px;"
+            (click)="navToSection('idCorrector')" role="button">Detalles »</button>
+        </div>
+      </div>
+  
+      <div class="col text_align" style="margin-top: 75px;">
+        <div class="card text_align margin_right_aux" style="width: 60%;">
+          <div class="mx-auto">
+            <div style="position: relative;">
+              <div class="circle" style="display: block;"></div>
+              <div style="position: absolute; margin-top: -75px;">
+                <img src="../../../assets/iconos/logo-simplificacion.png" style="width: 75px;" />
+              </div>
+  
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title font_1" style="font-weight: 600;">Simplifación de palabras</h5>
+            <p class="card-text font_2">Identifica las palabras de difícil comprensión y presenta alternativas más
+              sencillas para su sustitución, a partir de su significado, frecuencia de uso y relación con otras palabras
+              de la
+              oración.</p>
+          </div>
+          <button class="btn-govco outline-btn-govco  mx-auto" style="min-width: 150px; height: 40px;"
+            (click)="navToSection('idSimplificador')" role="button">Detalles »</button>
+        </div>
+      </div>
+  
+      <div class="col text_align" style="margin-top: 75px;">
+        <div class="card text_align margin_left_aux" style="width:60%;">
+          <div class="mx-auto">
+            <div style="position: relative;">
+              <div class="circle" style="display: block;"></div>
+              <div style="position: absolute; margin-top: -75px;">
+                <img src="../../../assets/iconos/logo-resumen.png" style="width: 75px;" />
+              </div>
+  
+            </div>
+  
+          </div>
+  
+          <div class="card-body text-center">
+            <h5 class="card-title font_1" style="font-weight: 600;">Resumen de texto</h5>
+            <p class="card-text font_2">Crea un texto más corto a partir de un texto más largo, conservando la coherencia
+              y la información mas importante dentro del contenido original.</p>
+            <button class="btn-govco outline-btn-govco" style="min-width: 150px;" (click)="navToSection('idResumen')"
+              role="button">Detalles »</button>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="col text_align" style="margin-top: 75px;">
+        <div class="card text_align margin_right_aux" style="width: 60%;">
+          <div class="mx-auto">
+  
+            <div style="position: relative;">
+              <div class="circle" style="display: block;"></div>
+              <div style="position: absolute; margin-top: -75px;">
+                <img src="../../../assets/iconos/logo-score.png" style="width: 75px;" />
+              </div>
+  
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title font_1" style="font-weight: 600;">Puntaje de Legibilidad</h5>
+            <p class="card-text font_2">Mide en una escala de 0 a 100 qué tan entendible es un texto en función de la
+              complejidad de las palabras utilizadas y la estructura gramatical de la construcción del mensaje.</p>
+          </div>
+          <button class="btn-govco outline-btn-govco  mx-auto" style="min-width: 150px; height: 40px;"
+            (click)="navToSection('idLegibilidad')" role="button">Detalles »</button>
+        </div>
+      </div>
+    </div>

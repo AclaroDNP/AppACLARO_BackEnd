@@ -1,0 +1,147 @@
+<div class="rows">
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active font_1" id="nav-extractivo-tab" data-bs-toggle="tab"
+          data-bs-target="#nav-extractivo" type="button" role="tab" aria-controls="nav-extractivo"
+          aria-selected="false" style="font-weight: 600;">Resumen Extractivo</button>
+        <button class="nav-link  font_1" id="nav-abstractivo-tab" data-bs-toggle="tab" data-bs-target="#nav-abstractivo"
+          type="button" role="tab" aria-controls="nav-abstractivo" aria-selected="true" style="font-weight: 600;">Resumen Abstractivo</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-extractivo" role="tabpanel" aria-labelledby="nav-extractivo-tab"
+        tabindex="0">
+  
+  
+        <div class="row">
+          <div class="card-body col-lg-6">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="font_1" style="font-weight: 600; color: #004884;">Ingresar texto</label>
+              <form #textoResumenE="ngForm" (ngSubmit)="cargarResumenExtractivo(textoNuevo)">
+                <textarea class="form-control" type="text" name="texto" rows="16" #texto="ngModel"
+                  [(ngModel)]="textoNuevo.texto" required>
+                  </textarea>
+  
+                <div>
+                  <input type="range" style="width: 250px;" name="points" min="0" max="100" step="10"
+                    [(ngModel)]="textoNuevo.porcentaje"> <span class="h6"> {{textoNuevo.porcentaje}}%</span>
+                  <span class=" ms-2 font_2"> Porcentaje resumen </span>
+                </div>
+  
+                <div class="container mt-2">
+                  <div class="row ">
+                    <div class="col  position-button-left mb-2" style="min-width: 275px; ">
+                      <input (click)="newTexto(); displaySpinner();" type="button"
+                        class="btn-govco fill-btn-govco d-inline " style="width: 125px; height: 42px; margin-right: 5px; "
+                        type="submit" value="Ejecutar">
+                      <button (click)="clearText()" class="btn-govco-red fill-btn-govco-red "
+                        style="width: 125px; height: 42px; " type="button">Borrar</button>
+                    </div >
+                    <div class="col position-button-right " style="min-width: 275px; ">
+                      <button (click)="getTextoPrevious()" class="btn-govco-green fill-btn-govco-green "
+                        style="width: 250px; height: 42px;" type="button">Obtener Texto Anterior</button>
+                    </div>
+                  </div>
+                </div>
+  
+              </form>
+  
+            </div>
+          </div>
+          <div class="card-body col-lg-6">
+            <!------------------------------------------------------------------------>
+            <div *ngIf="displayBool" class="d-flex flex-column mt-6 align-items-center justify-content-center">
+              <div class="row">
+                <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+                <div class="spinner-grow me-3 ms-3 " style="color:#F39C12;" role="status"></div>
+                <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+              </div>
+              <div class="row">
+                <strong>Cargando...</strong>
+              </div>
+            </div>
+            <!------------------------------------------------------------------------>
+            <form *ngIf="!displayBool">
+              <div *ngFor="let texto of textoResumenes" class="form-group">
+                <label class="font_1" style="font-weight: 600; color: #004884;">Texto resumido</label>
+                <textarea class="form-control" class="form-control" type="text" name="texto"
+                  rows="16">{{texto.prediction}}</textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+        <!--Abstractivo Resumen-->
+      </div>
+      <div class="tab-pane fade" id="nav-abstractivo" role="tabpanel" aria-labelledby="nav-abstractivo-tab" tabindex="0">
+  
+        <div class="row">
+          <div class="card-body col-lg-6">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="font_1" style="font-weight: 600; color: #004884;">Ingresar texto</label>
+              <form #textoResumenB="ngForm" (ngSubmit)="cargarResumenAbstractivo(textoNuevo)">
+                <textarea class="form-control" type="text" name="texto" rows="16" #texto="ngModel"
+                  [(ngModel)]="textoNuevo.texto" required>
+                  </textarea>
+  
+                <div class="container mt-2">
+                  <div class="row ">
+                    <div class="col  position-button-left mb-2" style="min-width: 300px;">
+  
+                      <input (click)="newTexto(); displaySpinner();" type="button"
+                        class="btn-govco fill-btn-govco d-inline " style="width: 125px; height: 42px; margin-right: 5px; "
+                        type="submit" value="Ejecutar">
+                      <button (click)="clearText()" class="btn-govco-red fill-btn-govco-red "
+                        style="width: 125px; height: 42px; " type="button">Borrar</button>
+                    </div>
+                    <div class="col position-button-right " style="min-width: 300px;">
+                      <button (click)="getTextoPrevious()" class="btn-govco-green fill-btn-govco-green "
+                        style="width: 250px; height: 42px;" type="button">Obtener Texto Anterior</button>
+  
+                    </div>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+          <div class="card-body col-lg-6">
+            <!------------------------------------------------------------------------>
+            <div *ngIf="displayBool" class="d-flex flex-column mt-6 align-items-center justify-content-center">
+              <div class="row">
+                <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+                <div class="spinner-grow me-3 ms-3 " style="color:#F39C12;" role="status"></div>
+                <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+              </div>
+              <div class="row font_2">
+                <strong >Cargando...</strong>
+              </div>
+            </div>
+            <!------------------------------------------------------------------------>
+            <form *ngIf="!displayBool">
+              <div *ngFor="let texto of textoResumenes" class="form-group">
+                <label class="font_1" style="font-weight: 600; color: #004884;">Texto resumido</label>
+                <textarea class="form-control" class="form-control" type="text" name="texto"
+                  rows="16">{{texto.prediction}}</textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  
+    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+    <div class="col-lg-12 text-center position-relative">
+      <p class="card-text font_2">Conoce el funcionamiento de las herramientas y deja tus comentarios sobre Aclaro.</p>
+      <div>
+        <button routerLink="/comentarios" class="btn-govco outline-btn-govco ms-3 me-3 " style="min-width: 200px;"
+          >Comentarios »</button>
+        <button routerLink="/description" class="btn-govco outline-btn-govco ms-3 me-3" style="min-width: 200px;"
+          >Funcionamiento »</button>
+      </div>
+    </div>

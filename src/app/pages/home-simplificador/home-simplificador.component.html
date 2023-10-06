@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="x-circle-fill" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+    </symbol>
+  </svg>
+  
+  <!---------------------------------------------------------------->
+  
+  
+  <div class="row">
+    <div class="card-body col-lg-8">
+      <div class="form-group">
+        <label class="font_1" style="font-weight: 600; color: #004884;">Ingresar texto</label>
+  
+        <div class="container">
+          <div class="row">
+            <div class="d-flex flex-column  position-relative">
+              <div *ngIf="displayTextarea === true">
+  
+  
+                <div class="position-relative top-0 start-0" #editableDivOne contenteditable="true" id="text-ui">
+                  <ng-container *ngFor="let zz of Array_T; let uu=index">
+                    <span *ngIf="Array_Underline[uu]=== 0 && Array_WordTarget[uu]==0">{{zz}}</span>
+                    <span *ngIf="Array_Underline[uu]=== 1">
+                      <span [ngTemplateOutlet]="tempPopupTwo" [ngTemplateOutletContext]="{ pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2" style="background-color:rgba(243,156,18,0.5);border-radius: 5px;"
+                        (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);">{{zz}}</span>
+                    </span>
+                    <span *ngIf="Array_WordTarget[uu]=== 1">
+                      <span [ngTemplateOutlet]="tempPopupTwo" [ngTemplateOutletContext]="{ pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2"
+                        style="background-color:rgba(26, 188, 156 ,0.75);border-radius: 5px;">{{zz}}</span>
+                    </span>
+  
+                  </ng-container>
+                </div>
+  
+                <div class="container mt-2">
+                  <div class="row ">
+                    <div class="col  position-button-left mb-2" style="min-width: 275px;">
+                      <button
+                        (click)="hidePopup();showPopupTwo=false;newTextoString(editableDivOne.innerText);cargaPalabrasComplejas();showDialog = false;removeBreaks(); displaySpinner(); Errors(); checkText();showTextarea();"
+                        class="btn-govco fill-btn-govco "
+                        style="width: 125px; height: 42px; margin-right: 5px; ">Ejecutar</button>
+                      <button (click)="showDialog = false; clearText(); Errors()"
+                        class="btn-govco-red fill-btn-govco-red " style="width: 125px; height: 42px; "
+                        type="button">Borrar</button>
+                    </div>
+                    <div class="col position-button-right " style="min-width: 275px;">
+  
+                      <button (click)="showDialog = false; clearText();getTextoPrevious(); Errors()"
+                        class="btn-govco-green fill-btn-govco-green " style="width: 250px; height: 42px;"
+                        type="button">Obtener Texto Anterior</button>
+                    </div>
+                  </div>
+                </div>
+  
+  
+              </div>
+              <div *ngIf="displayTextarea === false">
+  
+                <div class="position-relative top-0 start-0" #editableDivTwo contenteditable="true" id="text-ui">
+                  <ng-container *ngFor="let zz of Array_T; let uu=index">
+                    <span *ngIf="Array_Underline[uu]=== 0 && Array_WordTarget[uu]==0">{{zz}}</span>
+                    <span *ngIf="Array_Underline[uu]=== 1">
+                      <span [ngTemplateOutlet]="tempPopupTwo" [ngTemplateOutletContext]="{ pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2" style="background-color:rgba(243,156,18,0.5);border-radius: 5px;"
+                        (click)="positionPopup($event);onclick(); clickedTwo(cumsumArray[uu]);">{{zz}}</span>
+                    </span>
+                    <span *ngIf="Array_WordTarget[uu]=== 1">
+                      <span [ngTemplateOutlet]="tempPopupTwo" [ngTemplateOutletContext]="{ pp:uu, qq:cumsumArray[uu]}"
+                        class="pointer2"
+                        style="background-color:rgba(26, 188, 156 ,0.75);border-radius: 5px;">{{zz}}</span>
+                    </span>
+  
+                  </ng-container>
+                </div>
+  
+                <div class="container mt-2">
+                  <div class="row ">
+                    <div class="col  position-button-left mb-2" style="min-width: 275px;">
+                      <button
+                        (click)="hidePopup();showPopupTwo=false;newTextoString(editableDivTwo.innerText);cargaPalabrasComplejas();showDialog = false;removeBreaks(); displaySpinner(); Errors(); checkText();showTextarea();"
+                        class="btn-govco fill-btn-govco "
+                        style="width: 125px; height: 42px; margin-right: 5px;">Ejecutar</button>
+                      <button (click)="showDialog = false; clearText(); Errors()"
+                        class="btn-govco-red fill-btn-govco-red " style="width: 125px; height: 42px; "
+                        type="button">Borrar</button>
+  
+                    </div>
+                    <div class="col position-button-right " style="min-width: 275px;">
+  
+                      <button (click)="showDialog = false; clearText();getTextoPrevious(); Errors()"
+                        class="btn-govco-green fill-btn-govco-green " style="width: 250px; height: 42px;"
+                        type="button">Obtener Texto Anterior</button>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  
+    <div class="card-body col-lg-4">
+  
+      <label class="m-1 font_1" style="font-weight: 600; color: #004884;">Posibles Sustituciones</label>
+      <hr>
+  
+      <!----------------------------------------->
+      <blockquote *ngIf="displayErrors && changeText === textoNuevo.texto" class="blockquote">
+        <span class="font_2">No se han encontrado sugerencias.</span>
+      </blockquote>
+  
+  
+      <div *ngIf="displayBool " class="d-flex flex-column mt-6 align-items-center justify-content-center">
+        <div class="row">
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow me-3 ms-3" style="color:#F39C12;" role="status"></div>
+          <div class="spinner-grow" style="color:#F39C12;" role="status"></div>
+        </div>
+        <div class="row">
+          <strong>Cargando...</strong>
+        </div>
+      </div>
+      <!----------------------------------------->
+      <div *ngIf="!displayBool">
+        <div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example-2" style="height: 450px;"
+          tabindex="0">
+          <ul class="list-group">
+            <li *ngFor="let palabra of arraySuggestions;let ii = index">
+  
+              <button (click)="getIndex(ii);clicked(ii);" role="button"
+                class="button-simplificador">{{palabra.targetText}}</button>
+  
+              <div class="ms-4" *ngIf="showIndex === ii && showDialog">
+                <div *ngIf="arraySuggestions[ii].options[0] !== 'Null'">
+                  <div class="popup">
+                    <div class="row">
+                      <div class="col">
+                        <span class="ignore-buttonP__text ms-1 fw-bolder">Opciones:</span>
+                      </div>
+                      <div class="col">
+                        <button class="popup__close pull-right" (click)="showIndex = false">
+                          <svg class="popup__close-icon" viewbox="0 0 15 15" style="font-size: 2rem">
+                            <use xlink:href="#x-circle-fill"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <ul class="popup__list">
+                      <li class="popup__list-item"
+                        *ngFor="let repl of arraySuggestions[ii].options | slice:0:10;let jj = index">
+                        <button *ngIf="showIndex === ii && showDialog" class="popup__buttonP"
+                          (click)="showIndex = false; changeWordTargetTwo(arraySuggestions[ii].indWord,ii,jj,false);saveChangeText();">{{repl}}</button>
+                      </li>
+  
+                    </ul>
+  
+                    <div class="popup__ignore ">
+                      <button class="btn btn-outline-secondary"
+                        (click)="showIndex = false; changeWordTargetTwo(arraySuggestions[ii].indWord,ii,0,true)">
+                        <svg class="ignore-buttonP__icon " viewbox="0 0 12 12" width="15" height="15">
+                          <use xlink:href="#x-circle-fill"></use>
+                        </svg>
+                        <span class="ignore-buttonP__text">Ignorar opciones</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+  
+                <div *ngIf="arraySuggestions[ii].options[0] === 'Null'">
+                  <div class="popup">
+                    <div class="row">
+                      <div class="col">
+                        <span class="ignore-buttonP__text ms-1 fw-bolder">Opciones:</span>
+                      </div>
+                      <div class="col">
+                        <button class="popup__close pull-right" (click)="showIndex = false">
+                          <svg class="popup__close-icon" viewbox="0 0 15 15" style="font-size: 2rem">
+                            <use xlink:href="#x-circle-fill"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <ul class="popup__list">
+                      <span class="text-center">No que han encontrado opciones</span>
+                    </ul>
+  
+                    <div class="popup__ignore ">
+                      <button class="btn btn-outline-secondary"
+                        (click)="showIndex = false; changeWordTargetTwo(arraySuggestions[ii].indWord,ii,0,true)">
+                        <svg class="ignore-buttonP__icon " viewbox="0 0 12 12" width="15" height="15">
+                          <use xlink:href="#x-circle-fill"></use>
+                        </svg>
+                        <span class="ignore-buttonP__text">Ignorar opciones</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  
+  
+
+  
+    <ng-template #tempPopupTwo let-pp="pp" let-qq="qq" class="position-absolute">
+  
+      <div #tempPopupThree *ngIf="showIndexTwo === qq && showPopupTwo" class="popup_two" contenteditable="false" [ngStyle]="popupPosition" >
+        <div class="row border-bottom-2" >
+          <div class="col-9">
+            <span class="ignore-buttonP__text ms-1 fw-bolder">Palabra Compleja:</span>
+          </div>
+          <div class="col-3">
+            <button class="popup__close pull-right" (click)="showIndex = false;showIndexTwo = false ; visible= false;">
+              <svg class="popup__close-icon" viewbox="0 0 15 15" style="font-size: 2.5rem; margin-right: 15px">
+                <use xlink:href="#x-circle-fill"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-around popup__ignore">
+  
+          <button class="btn-govco-s fill-btn-govco-s"
+            style="margin-top: 7px; margin-bottom: 7px; margin-left: 3px; margin-right: 3px;"
+            (click)="showIndexTwo = false;showIndex = false; showPopupTwo=false; onClick2();DeleteUnderline(pp);highlightWordTarget(pp); textoNuevo.checkWords = 'False'; textoNuevo.checkInd = qq; sugerenciasPalabraCompleja(qq);displayBool = true">
+            <span class="ignore-buttonP__text" style="font-size: 16px;">Generar Sustitución</span>
+          </button>
+  
+          <button class="btn-govco-i fill-btn-govco-i"
+            style="margin-top: 7px; margin-bottom: 7px; margin-left: 3px; margin-right: 3px;"
+            (click)="showIndexTwo = false; showIndex = false; showPopupTwo=false;ignoreWord(pp);visible= false;">
+            <span class="ignore-buttonP__text" style="font-size: 16px;">Ignorar Palabra</span>
+          </button>
+  
+        </div>
+      </div>
+  
+    </ng-template>
+    <!---------------------------------------------->
+    <!---------------------------------------------->
+  </div>
+  
+  
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+  
+  <div class="col-lg-12 text-center position-relative">
+    <p class="card-text font_2">Conoce el funcionamiento de las herramientas y deja tus comentarios sobre Aclaro.</p>
+    <div>
+      <button routerLink="/comentarios" class="btn-govco outline-btn-govco ms-3 me-3 "
+        style="min-width: 200px;">Comentarios »</button>
+      <button routerLink="/description" class="btn-govco outline-btn-govco ms-3 me-3"
+        style="min-width: 200px;">Funcionamiento »</button>
+    </div>
+  </div>
